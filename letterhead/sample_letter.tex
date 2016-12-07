@@ -1,0 +1,87 @@
+\documentclass[11pt]{letter}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{url}
+\usepackage[absolute,overlay]{textpos} 
+
+\usepackage{blindtext} % Space filler package. Delete.
+
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{3.5in}
+\addtolength{\oddsidemargin}{-0.25in}
+\addtolength{\textwidth}{0.5in}
+
+\definecolor{DarkGray}{rgb}{0.5,0.5,0.5}
+
+\date{\today}
+
+\graphicspath{ {images/} }
+
+\ClearShipoutPicture
+
+% If you want to control the Opacity - note Miktex on windows has issues.
+%\newcommand\BackgroundPic{%
+%	\begin{tikzpicture}[remember picture, overlay, opacity=0.08]%
+%	\node [rotate=0,scale=0.8,text opacity=0.1] at (current page.center) %{\includegraphics{./logo}};
+%	\end{tikzpicture}
+%}
+
+% Correction that will work on all systems, if you want a darker opacity use above
+\newcommand\BackgroundPic{%
+	\begin{tikzpicture}[remember picture, overlay, opacity=0.08]%
+	\node [rotate=0,scale=0.8,text opacity=0.1] at (current page.center) {\includegraphics{./logo_10}};
+	\end{tikzpicture}
+}
+
+
+
+
+\begin{document}
+\begin{letter}{}%\\
+\AddToShipoutPicture*{\BackgroundPic} % the * will only place picture on one page
+	
+\begin{textblock}{12}(1.25,1.0)
+	\includegraphics{./IST-metallic-logo}\hfill %
+\end{textblock}
+	
+	
+{FOO Committee\\
+	BAR University\\
+	Department of BAZ\\
+	Attn: QUX\\
+	Address\\
+	City, State Zip  USA}%\\	
+	
+\opening{Dear Person(s) of Interest,\\}
+
+
+% Insert your letter text here and delete the blindtex command
+\blindtext
+
+
+\closing{Sincerely,\\
+	\includegraphics[scale=.2]{./signature}\\
+	John Smith., Ph.D.\\
+	Assistant Professor\\
+	Institute for Simulation and Training\\
+	University of Central Florida
+}
+
+
+
+
+\begin{textblock}{8}(4,14.3)
+	\begin{center}\textcolor{DarkGray}{%
+			\fontsize{10}{15}\selectfont\bf%
+			Partnership II \textbullet\, 3100 Technology Pkwy. \textbullet\, Orlando, FL  32826-0544\\
+			(407) 882-1300 \textbullet\, FAX (407) 882-1335\\
+		}
+	\end{center}
+\end{textblock}
+
+	%\newpage
+\end{letter}	
+\end{document}
